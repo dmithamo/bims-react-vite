@@ -8,14 +8,24 @@ import {
 } from 'react-router-dom';
 import './index.css';
 import { RootRoute } from '~/routes/Root.route.tsx';
-import { homeRoute, moneyRoute } from '~/utils/routes.utils.ts';
+import {
+  authRoute,
+  homeRoute,
+  loginRoute,
+  moneyRoute,
+} from '~/utils/routes.utils.ts';
 import { MoneyRoute } from '~/routes/Money.route.tsx';
 import { MoneyOverviewRoute } from '~/routes/Money.Overview.route.tsx';
 import { AccessDeniedOr404Route } from '~/routes/AccessDeniedOr404.route.tsx';
+import { AuthRoute } from '~/routes/Auth.route.tsx';
+import { AuthLoginRoute } from '~/routes/Auth.Login.route.tsx';
 
 const ROUTER = createBrowserRouter(
   createRoutesFromElements(
     <Route path={homeRoute()} element={<RootRoute />}>
+      <Route path={authRoute()} element={<AuthRoute />}>
+        <Route path={loginRoute()} element={<AuthLoginRoute />} />
+      </Route>
       <Route path={moneyRoute()} element={<MoneyRoute />}>
         <Route path={moneyRoute('')} element={<MoneyOverviewRoute />} />
         <Route path={'*'} element={<AccessDeniedOr404Route />} />

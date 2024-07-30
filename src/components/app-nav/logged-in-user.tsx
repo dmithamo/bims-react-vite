@@ -55,11 +55,11 @@ export const DetailedLoggedInUser = (props: Props): ReactElement => {
         src={avatar ?? genericAvatar}
         alt={name}
       />
-      <div className={'capitalize text-primary/50'}>
+      <div className={'capitalize'}>
         <FlexContainer
           direction={DirectionOption.column}
           gap={GapOption.minimum}>
-          <div className={'text-primary'}>{name}</div>
+          <div className={''}>{name}</div>
           <div>
             <div className={'text-xs lowercase'}>{email}</div>
             <div className={'text-xs'}>

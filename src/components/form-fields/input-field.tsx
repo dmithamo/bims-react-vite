@@ -48,26 +48,26 @@ export const InputField = (props: Props): ReactElement => {
         align={AlignOption.start}
         justify={JustifyOption.start}
         gap={GapOption.minimum}>
-        <p className={clsx('text-xs text-primary/75')}>{label}</p>
+        <p className={clsx('text-xs')}>{label}</p>
 
         <input
           className={clsx(
-            'w-full py-2 px-3 sm:py-3',
+            'w-full py-3 px-3 sm:py-3',
             'text-base placeholder-slate-400',
-            'bg-background-input/50',
+            'bg-transparent',
             elementRounding,
             'border-2',
-            'border-background-input',
-            'focus:outline-none focus:border-black focus:ring-1 focus:ring-transparent focus:bg-white',
+            'border-slate-400',
+            'focus:outline-none focus:border-black focus:ring-1 focus:ring-transparent focus:bg-transparent autofill:bg-transparent',
             'disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none',
             {
-              'border-error text-error focus:border-error focus:text-error':
+              'border-red-500 text-red-500 focus:border-red-500 focus:text-red-500':
                 !!error,
             },
           )}
           name={name}
           type={type}
-          placeholder={placeholder ?? label}
+          placeholder={placeholder ?? ''}
           value={value}
           onChange={event => {
             if (!onChange) return;
@@ -82,7 +82,7 @@ export const InputField = (props: Props): ReactElement => {
           required={required}
         />
         {error ? (
-          <span className={clsx('text-sm text-error')}>{error}</span>
+          <span className={clsx('text-sm text-red-500')}>{error}</span>
         ) : (
           <></>
         )}

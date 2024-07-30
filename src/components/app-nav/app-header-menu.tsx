@@ -78,7 +78,7 @@ export const AppHeaderMenu = (props: Props): ReactElement => {
     setShowMenu(false);
   });
 
-  const iconClasses = clsx('w-8 h-8', 'text-primary', 'cursor-pointer');
+  const iconClasses = clsx('w-8 h-8', 'cursor-pointer');
 
   return (
     <>
@@ -101,7 +101,8 @@ export const AppHeaderMenu = (props: Props): ReactElement => {
             'fixed right-0 top-0',
             'w-full h-full sm:w-[25rem]',
             'flex flex-col gap-6',
-            'p-8 bg-background text-primary/75 shadow',
+            'p-8 shadow',
+            'bg-slate-50 text-zinc-900 dark:bg-slate-950 dark:text-slate-400',
             'z-10',
           )}>
           <FlexContainer
@@ -115,7 +116,7 @@ export const AppHeaderMenu = (props: Props): ReactElement => {
           </FlexContainer>
 
           <FlexContainer
-            className={'pb-8 border-b border-primary/50'}
+            className={'pb-8 border-b border-zinc-900 dark:border-slate-400'}
             direction={DirectionOption.column}
             gap={GapOption.medium}
             marginY={SpacingOption.large}>
@@ -136,7 +137,7 @@ export const AppHeaderMenu = (props: Props): ReactElement => {
           </FlexContainer>
 
           <FlexContainer
-            className={'pb-8 border-b border-primary/50'}
+            className={'pb-8 border-b border-zinc-900 dark:border-slate-400'}
             direction={DirectionOption.column}
             gap={GapOption.medium}
             marginY={SpacingOption.large}>

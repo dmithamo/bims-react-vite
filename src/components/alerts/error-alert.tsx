@@ -18,7 +18,7 @@ export const ErrorAlert: FC<Props> = ({ message }) => (
     align={AlignOption.center}
     width={WidthOption.full}
     className={clsx(
-      'p-2 py-3 text-error bg-error/50 border-2 border-error',
+      'p-2 py-3 text-slate-800 bg-red-200 border-2 border-red-400',
       elementRounding,
     )}>
     <svg
@@ -33,6 +33,6 @@ export const ErrorAlert: FC<Props> = ({ message }) => (
         d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
       />
     </svg>
-    <span className={'text-error'}>{message}</span>
+    <span className={''}>{message}</span>
   </FlexContainer>
 );

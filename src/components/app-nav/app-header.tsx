@@ -17,8 +17,8 @@ import { FlexContainer } from '~/components/flex/flex-container.tsx';
 const headerClasses = clsx(
   'w-full',
   'flex justify-between items-center',
-  'text-primary',
-  'py-2',
+  'shadow',
+  'p-2',
 );
 
 interface Props {
@@ -28,7 +28,7 @@ interface Props {
 }
 
 export default function AppHeader(props: Props): ReactElement {
-  const { appList, user, appVersion } = props;
+  const { appList, user } = props;
   const currentUrl = useLocation().pathname;
   const activeApp = useMemo<IAppWithIcon | undefined>(
     () => appList?.find(app => currentUrl.startsWith(app.href)),
@@ -40,7 +40,7 @@ export default function AppHeader(props: Props): ReactElement {
     return segments[segments.length - 1] || activeApp?.name || 'Overview';
   }, [activeApp, currentUrl]);
 
-  if (!user) {
+  if (user) {
     return (
       <header className={headerClasses}>
         <Logo shouldClickToHome={false} />
@@ -70,7 +70,17 @@ export default function AppHeader(props: Props): ReactElement {
           <Logo shouldClickToHome={true} />
         )}
 
-        <AppHeaderMenu appList={appList} user={user} appVersion={appVersion} />
+        <AppHeaderMenu
+          appList={appList}
+          user={{
+            id: crypto.randomUUID(),
+            name: 'D Mithamo',
+            email: 'bmithamo@gmail.com',
+            account: { id: crypto.randomUUID(), name: 'Bims' },
+            role: { id: crypto.randomUUID(), name: 'Admin' },
+          }}
+          appVersion={import.meta.env.VITE_APP_VERSION}
+        />
       </FlexContainer>
     </header>
   );

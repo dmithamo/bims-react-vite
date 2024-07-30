@@ -9,7 +9,8 @@ export const timelinesRoute: Route = () => '/timelines';
 export const settingsRoute: Route = (tab = '') =>
   `/settings${tab ? '/' + tab : ''}`;
 export const notificationsRoute: Route = () => '/notifications';
+export const authRoute: Route = () => '/auth';
 export const loginRoute: Route = provider =>
-  `/login${provider ? '/' + provider : ''}`;
+  `/auth/login${provider ? '/' + provider : ''}`;
 export const logoutRoute: Route = provider =>
-  `/logout${provider ? '/' + provider : ''}`;
+  `/auth/logout${provider ? '/' + provider : ''}`;

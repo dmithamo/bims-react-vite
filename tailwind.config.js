@@ -6,12 +6,6 @@ export default {
       fontSize: {
         base: '14px',
       },
-      colors: {
-        accent: 'rgb(var(--accent-rgb))',
-        error: 'rgb(var(--error-rgb))',
-        back: 'rgb(var(--background-rgb))',
-        fore: 'rgb(var(--foreground-rgb))',
-      },
       fontFamily: {
         sans: ['Circular Std', 'sans-serif'],
         bold: ['Circular Std Bold', 'sans-serif'],

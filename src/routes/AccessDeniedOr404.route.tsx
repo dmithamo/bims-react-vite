@@ -34,7 +34,7 @@ export const AccessDeniedOr404Route = () => {
                 'underline',
                 'underline-offset-4',
               )}
-              to={'../'}>
+              to={'..'}>
               Back
             </Link>
           </FlexContainer>
