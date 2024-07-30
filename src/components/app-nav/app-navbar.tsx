@@ -29,7 +29,7 @@ export default function AppNavbar(props: Props): ReactElement | null {
         'transition-all duration-200',
       )}>
       <FlexContainer
-        className={clsx('bg-back', 'p-1', 'rounded-t-xl', 'w-full sm:w-1/3')}
+        className={clsx('bg-back', 'p-2', 'rounded-t-xl', 'w-full sm:w-1/3')}
         direction={DirectionOption.row}
         justify={JustifyOption.around}
         align={AlignOption.center}
@@ -54,6 +54,7 @@ function SidebarItem({
   const linkClasses = ({ isActive }: { isActive: boolean }): string =>
     clsx(
       'w-full flex flex-col items-center gap-0',
+      'transition-all duration-200',
       'justify-self-center',
       'hover:text-accent',
       isActive
