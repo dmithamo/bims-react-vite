@@ -13,12 +13,12 @@ export const RootRoute = () => {
     <>
       <FlexContainer
         width={WidthOption.full}
-        className={clsx('min-h-screen p-3')}
+        className={clsx('min-h-screen')}
         direction={DirectionOption.column}>
-        <div className={clsx('w-full', headerNavHeight)}>
+        <div className={clsx('w-full px-2', headerNavHeight)}>
           <AppHeader />
         </div>
-        <div className={clsx('w-full flex-1 rounded-t-xl shadow')}>
+        <div className={clsx('w-full px-2 flex-1 rounded-t-2xl shadow')}>
           <Outlet />
         </div>
       </FlexContainer>

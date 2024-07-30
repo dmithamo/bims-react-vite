@@ -8,6 +8,7 @@ export default {
       },
       colors: {
         accent: 'rgb(var(--accent-rgb))',
+        error: 'rgb(var(--error-rgb))',
         back: 'rgb(var(--background-rgb))',
         fore: 'rgb(var(--foreground-rgb))',
       },
