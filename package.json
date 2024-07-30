@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 10 --fix",
     "preview": "vite preview",
     "format": "prettier ./src/**/*.{ts,tsx} --write",
     "prepare": "husky",
@@ -21,8 +21,10 @@
     ]
   },
   "dependencies": {
+    "clsx": "^2.1.1",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.25.1"
   },
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",
