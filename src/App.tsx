@@ -1,10 +1,10 @@
-import AppHeader from '~/components/app-nav/app-header.tsx';
-import { AppFooter } from '~/components/app-nav/app-footer.tsx';
 import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
 } from 'react-router-dom';
+import { AppFooter } from '~/components/app-nav/app-footer.tsx';
+import AppHeader from '~/components/app-nav/app-header.tsx';
 
 function App() {
   return (

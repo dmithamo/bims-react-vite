@@ -1,14 +1,12 @@
+import { clsx } from 'clsx';
 import { type FC } from 'react';
 import {
   AlignOption,
-  FlexContainer,
-  GapOption,
-} from '~/components/flex/flex-container';
-import {
   elementRounding,
+  GapOption,
   WidthOption,
 } from '~/components/ui-utils/styles.utils';
-import { clsx } from 'clsx';
+import { FlexContainer } from '../flex/flex-container';
 
 type Props = {
   message: string;

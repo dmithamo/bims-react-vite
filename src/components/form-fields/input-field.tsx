@@ -1,5 +1,8 @@
 import { type ChangeEventHandler, type ReactElement } from 'react';
 
+import { clsx } from 'clsx';
+import { FlexContainer } from '~/components/flex/flex-container.tsx';
+import { type InputType } from '~/components/ui-utils/enums';
 import {
   AlignOption,
   DirectionOption,
@@ -8,10 +11,7 @@ import {
   JustifyOption,
   WidthOption,
 } from '~/components/ui-utils/styles.utils';
-import { type InputType } from '~/components/ui-utils/enums';
-import { getInputPattern } from '~/utils/validators/input-validation';
-import { clsx } from 'clsx';
-import { FlexContainer } from '~/components/flex/flex-container.tsx';
+import { getInputPattern } from '~/validators/input-validation';
 
 interface Props {
   name?: string;
