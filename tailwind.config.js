@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontSize: {
-        base: '12px',
+        base: '14px',
       },
       colors: {
         accent: 'rgb(var(--accent-rgb))',
@@ -12,9 +12,8 @@ export default {
         fore: 'rgb(var(--foreground-rgb))',
       },
       fontFamily: {
-        sans: ['IBM Plex Sans', 'sans-serif'],
-        extralight: ['IBM Plex Sans ExtraLight', 'sans-serif'],
-        bold: ['IBM Plex Sans Bold', 'sans-serif'],
+        sans: ['Circular Std', 'sans-serif'],
+        bold: ['Circular Std Bold', 'sans-serif'],
       },
     },
   },

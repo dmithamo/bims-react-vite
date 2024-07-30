@@ -27,7 +27,7 @@ export default function AppNavbar(props: Props): ReactElement | null {
       className={clsx(
         `w-full flex items-center justify-center`,
         'fixed bottom-0 left-0',
-        'p-6',
+        'p-1',
         'transition-all duration-200',
       )}>
       <FlexContainer
@@ -35,7 +35,7 @@ export default function AppNavbar(props: Props): ReactElement | null {
           'bg-background',
           'p-1',
           elementRounding,
-          'w-full sm:w-1/2',
+          'w-full sm:w-1/3',
         )}
         direction={DirectionOption.row}
         justify={JustifyOption.around}

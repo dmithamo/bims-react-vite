@@ -3,47 +3,40 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'IBM Plex Sans';
-  font-style: normal;
-  font-weight: 400;
-  src: local(''), url('/fonts/IBMPlexSans-Regular.ttf');
+    font-family: 'Circular Std';
+    font-style: normal;
+    font-weight: normal;
+    src: local(''), url('/fonts/CircularStd-Book.ttf');
 }
 
 @font-face {
-  font-family: 'IBM Plex Sans Bold';
-  font-style: normal;
-  font-weight: 700;
-  src: local(''), url('/fonts/IBMPlexSans-Bold.ttf');
-}
-
-@font-face {
-  font-family: 'IBM Plex Sans ExtraLight';
-  font-style: normal;
-  font-weight: 100;
-  src: local(''), url('/fonts/IBMPlexSans-ExtraLight.ttf');
+    font-family: 'Circular Std Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local(''), url('/fonts/CircularStd-Book.ttf');
 }
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-rgb: 250, 250, 250;
-  --accent-rgb: 255, 87, 51;
+    --foreground-rgb: 0, 0, 0;
+    --background-rgb: 250, 250, 250;
+    --accent-rgb: 255, 87, 51;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 250, 250, 250;
-    --background-rgb: 0, 0, 0;
-    --accent-rgb: 255, 87, 51;
-  }
+    :root {
+        --foreground-rgb: 250, 250, 250;
+        --background-rgb: 0, 0, 0;
+        --accent-rgb: 255, 87, 51;
+    }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background-color: rgb(var(--background-rgb));
+    color: rgb(var(--foreground-rgb));
+    background-color: rgb(var(--background-rgb));
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+    .text-balance {
+        text-wrap: balance;
+    }
 }

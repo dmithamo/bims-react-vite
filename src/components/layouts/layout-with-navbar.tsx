@@ -13,7 +13,7 @@ interface Props {
 export const LayoutWithNavbar: FC<Props> = ({ navLinks }) => {
   return (
     <>
-      <div className={'w-full p-3 mb-20'}>
+      <div className={'w-full h-full'}>
         <Outlet />
       </div>
       <AppNavBar navItems={navLinks} />
