@@ -1,20 +1,15 @@
 import { LayoutWithNavbar } from '~/components/layouts/layout-with-navbar.tsx';
-import { ReactElement } from 'react';
 import { moneyRoute } from '~/utils/routes.utils.ts';
 import { WalletIcon } from '~/components/svg-icons/wallet-icon.tsx';
 import { FinanceTab } from '~/utils/enums.ts';
 import { BudgetIcon } from '~/components/svg-icons/budget-icon.tsx';
 import { TransactionsIcon } from '~/components/svg-icons/transactions-icon.tsx';
 import { BriefcaseIcon } from '~/components/svg-icons/briefcase-icon.tsx';
+import { TNavbarItem } from '~/utils/types.ts';
 
 const iconWidthHeight = 'w-7 h-7';
 
-const NAVBAR_LINKS: Array<{
-  to: string;
-  label: string;
-  icon: ReactElement;
-  permissions: Array<string>;
-}> = [
+const NAVBAR_LINKS: Array<TNavbarItem> = [
   {
     to: moneyRoute(),
     label: 'Overview',
