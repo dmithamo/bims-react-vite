@@ -1,7 +1,9 @@
 import NavItem from '~/components/app-nav/nav-item';
-import { type ReactElement, useRef, useState } from 'react';
+import { type ReactElement, useMemo, useRef, useState } from 'react';
 import {
+  assetsRoute,
   logoutRoute,
+  moneyRoute,
   notificationsRoute,
   settingsRoute,
 } from '~/utils/routes.utils';
@@ -15,7 +17,7 @@ import {
   SpacingOption,
   WidthOption,
 } from '~/components/ui-utils/styles.utils';
-import type { IAppWithIcon, SessionUser } from '~/utils/types';
+import { TNavbarItem, TSessionUser } from '~/utils/types';
 import { CogIcon } from '~/components/svg-icons/cog-icon';
 import { NotificationsIcon } from '~/components/svg-icons/notifications-icon';
 import {
@@ -29,6 +31,8 @@ import { LogoutIcon } from '~/components/svg-icons/logout-icon';
 import { Form } from 'react-router-dom';
 import { useOnClickOutside } from '~/utils/hooks/useOnClickOutside.ts';
 import { FlexContainer } from '~/components/flex/flex-container.tsx';
+import { WalletIcon } from '~/components/svg-icons/wallet-icon.tsx';
+import { SquaresIcon } from '~/components/svg-icons/squares-icon.tsx';
 
 const HeaderMenuItemWrapper = ({
   children,
@@ -43,30 +47,48 @@ const HeaderMenuItemWrapper = ({
 );
 
 interface Props {
-  user: SessionUser;
+  user: TSessionUser;
   appVersion?: string;
-  appList?: IAppWithIcon[];
 }
 
 export const AppHeaderMenu = (props: Props): ReactElement => {
-  const { appList = [], user, appVersion } = props;
+  const { user, appVersion } = props;
 
-  const headerLinks: Array<{
-    to: string;
-    icon: ReactElement;
-    label: string;
-  }> = [
-    {
-      to: notificationsRoute(),
-      icon: <NotificationsIcon />,
-      label: 'Notifications',
-    },
-    {
-      to: settingsRoute(),
-      icon: <CogIcon />,
-      label: 'Settings',
-    },
-  ];
+  const headerLinks: Array<TNavbarItem> = useMemo(
+    () => [
+      {
+        to: notificationsRoute(),
+        icon: <NotificationsIcon />,
+        label: 'Notifications',
+        permissions: [],
+      },
+      {
+        to: settingsRoute(),
+        icon: <CogIcon />,
+        label: 'Settings',
+        permissions: [],
+      },
+    ],
+    [],
+  );
+
+  const appList: Array<TNavbarItem> = useMemo(
+    () => [
+      {
+        to: moneyRoute(),
+        icon: <WalletIcon />,
+        label: 'Money',
+        permissions: ['money.read'],
+      },
+      {
+        to: assetsRoute(),
+        icon: <SquaresIcon />,
+        label: 'Assets',
+        permissions: ['assets.read'],
+      },
+    ],
+    [],
+  );
 
   const [showMenu, setShowMenu] = useState<boolean>(false);
   const toggleMenu = (): void => {
@@ -120,16 +142,16 @@ export const AppHeaderMenu = (props: Props): ReactElement => {
             direction={DirectionOption.column}
             gap={GapOption.medium}
             marginY={SpacingOption.large}>
-            {appList.map(navItem => (
-              <HeaderMenuItemWrapper onClick={toggleMenu} key={navItem.href}>
+            {appList.map(({ to, icon, label, permissions }) => (
+              <HeaderMenuItemWrapper onClick={toggleMenu} key={to}>
                 <NavItem
-                  key={navItem.href}
                   shouldMatchExact={false}
-                  to={navItem.href}>
+                  to={to}
+                  permissions={permissions}>
                   <div
                     className={clsx('flex items-center justify-start gap-4')}>
-                    <span>{navItem.icon}</span>
-                    <span>{navItem.name}</span>
+                    <span>{icon}</span>
+                    <span>{label}</span>
                   </div>
                 </NavItem>
               </HeaderMenuItemWrapper>
@@ -141,9 +163,13 @@ export const AppHeaderMenu = (props: Props): ReactElement => {
             direction={DirectionOption.column}
             gap={GapOption.medium}
             marginY={SpacingOption.large}>
-            {headerLinks.map(({ to, icon, label }) => (
+            {headerLinks.map(({ to, icon, label, permissions }) => (
               <HeaderMenuItemWrapper onClick={toggleMenu} key={to}>
-                <NavItem key={to} shouldMatchExact={true} to={to}>
+                <NavItem
+                  permissions={permissions}
+                  key={to}
+                  shouldMatchExact={true}
+                  to={to}>
                   <div
                     className={clsx('flex items-center justify-start gap-4')}>
                     <span>{icon}</span>

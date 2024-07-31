@@ -19,6 +19,8 @@ import { MoneyOverviewRoute } from '~/routes/Money.Overview.route.tsx';
 import { AccessDeniedOr404Route } from '~/routes/AccessDeniedOr404.route.tsx';
 import { AuthRoute } from '~/routes/Auth.route.tsx';
 import { AuthLoginRoute } from '~/routes/Auth.Login.route.tsx';
+import { ProtectedRoute } from '~/routes/Protected.route.tsx';
+import { MoneyBudgetsRoute } from '~/routes/MoneyBudgets.route.tsx';
 
 const ROUTER = createBrowserRouter(
   createRoutesFromElements(
@@ -27,7 +29,22 @@ const ROUTER = createBrowserRouter(
         <Route path={loginRoute()} element={<AuthLoginRoute />} />
       </Route>
       <Route path={moneyRoute()} element={<MoneyRoute />}>
-        <Route path={moneyRoute('')} element={<MoneyOverviewRoute />} />
+        <Route
+          path={moneyRoute('')}
+          element={
+            <ProtectedRoute requiredPermissions={['moneyOverviewRead']}>
+              <MoneyOverviewRoute />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path={moneyRoute('budgets')}
+          element={
+            <ProtectedRoute requiredPermissions={['moneyBudgetsRead']}>
+              <MoneyBudgetsRoute />
+            </ProtectedRoute>
+          }
+        />
         <Route path={'*'} element={<AccessDeniedOr404Route />} />
       </Route>
       <Route path={'*'} element={<AccessDeniedOr404Route />} />

@@ -9,33 +9,38 @@ import { BriefcaseIcon } from '~/components/svg-icons/briefcase-icon.tsx';
 
 const iconWidthHeight = 'w-7 h-7';
 
-const SIDEBAR_LINKS: Array<{
+const NAVBAR_LINKS: Array<{
   to: string;
   label: string;
   icon: ReactElement;
+  permissions: Array<string>;
 }> = [
   {
     to: moneyRoute(),
     label: 'Overview',
     icon: <WalletIcon widthHeight={iconWidthHeight} />,
+    permissions: [],
   },
   {
     to: moneyRoute(FinanceTab.budgets),
     label: 'Budget',
     icon: <BudgetIcon widthHeight={iconWidthHeight} />,
+    permissions: [],
   },
   {
     to: moneyRoute(FinanceTab.transactions),
     label: 'Transactions',
     icon: <TransactionsIcon widthHeight={iconWidthHeight} />,
+    permissions: [],
   },
   {
     to: moneyRoute(FinanceTab.investments),
     label: 'Investments',
     icon: <BriefcaseIcon widthHeight={iconWidthHeight} />,
+    permissions: [],
   },
 ];
 
 export const MoneyRoute = () => {
-  return <LayoutWithNavbar navLinks={SIDEBAR_LINKS} />;
+  return <LayoutWithNavbar navLinks={NAVBAR_LINKS} />;
 };

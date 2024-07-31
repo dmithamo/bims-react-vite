@@ -1,10 +1,12 @@
-import { type ReactElement, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { NavLink } from 'react-router-dom';
 import { clsx } from 'clsx';
+import { TPermissionOnFE } from '~/utils/types.ts';
 
 interface Props {
   to: string;
   children: ReactNode;
+  permissions: Array<TPermissionOnFE>;
   shouldMatchExact?: boolean;
   extraClasses?: (args: { isActive: boolean }) => string;
 }
@@ -14,7 +16,8 @@ export default function NavItem({
   children,
   shouldMatchExact = true,
   extraClasses = () => '',
-}: Props): ReactElement {
+  permissions,
+}: Props): ReactNode {
   const linkClasses = ({ isActive }: { isActive: boolean }): string =>
     clsx(
       'hover:text-emerald-500 dark:hover:text-emerald-700',
@@ -25,6 +28,7 @@ export default function NavItem({
       extraClasses({ isActive }),
     );
 
+  if (!permissions) return null;
   return (
     <NavLink end={shouldMatchExact} className={linkClasses} to={to}>
       {children}

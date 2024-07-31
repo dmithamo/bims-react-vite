@@ -8,13 +8,10 @@ import {
 import { clsx } from 'clsx';
 import { FlexContainer } from '~/components/flex/flex-container.tsx';
 import NavItem from '~/components/app-nav/nav-item.tsx';
+import { TNavbarItem } from '~/utils/types.ts';
 
 interface Props {
-  navItems: Array<{
-    to: string;
-    label: string;
-    icon: ReactElement;
-  }>;
+  navItems: Array<TNavbarItem>;
 }
 
 export default function AppNavbar(props: Props): ReactElement | null {
@@ -38,8 +35,14 @@ export default function AppNavbar(props: Props): ReactElement | null {
         justify={JustifyOption.around}
         align={AlignOption.center}
         width={WidthOption.full}>
-        {navItems.map(({ to, icon, label }) => (
-          <SidebarItem key={to} to={to} label={label} icon={icon} />
+        {navItems.map(({ to, icon, label, permissions }) => (
+          <SidebarItem
+            key={to}
+            to={to}
+            label={label}
+            icon={icon}
+            permissions={permissions}
+          />
         ))}
       </FlexContainer>
     </nav>
@@ -50,18 +53,19 @@ function SidebarItem({
   to,
   label,
   icon,
-}: {
-  to: string;
-  label: string;
-  icon: ReactElement;
-}): ReactElement {
+  permissions,
+}: TNavbarItem): ReactElement {
   const linkClasses = ({ isActive }: { isActive: boolean }): string =>
     clsx('flex flex-col items-center gap-none', {
       '[&>*:nth-child(even)]:inline-block': isActive,
     });
 
   return (
-    <NavItem shouldMatchExact={true} extraClasses={linkClasses} to={to}>
+    <NavItem
+      shouldMatchExact={true}
+      extraClasses={linkClasses}
+      to={to}
+      permissions={permissions}>
       {icon}
       <span className={'text-xs hidden'}>{label}</span>
     </NavItem>

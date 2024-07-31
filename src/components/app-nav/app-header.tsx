@@ -8,7 +8,7 @@ import {
   JustifyOption,
   WidthOption,
 } from '~/components/ui-utils/styles.utils';
-import type { IAppWithIcon, SessionUser } from '~/utils/types';
+import type { IAppWithIcon, TSessionUser } from '~/utils/types';
 import { useLocation } from 'react-router-dom';
 import { clsx } from 'clsx';
 import { BackIcon } from '~/components/svg-icons/back-icon';
@@ -22,7 +22,7 @@ const headerClasses = clsx(
 );
 
 interface Props {
-  user?: SessionUser;
+  user?: TSessionUser;
   appVersion?: string;
   appList?: IAppWithIcon[];
 }

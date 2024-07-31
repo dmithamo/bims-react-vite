@@ -2,47 +2,60 @@ import { type ReactElement } from 'react';
 
 export type UUID = ReturnType<typeof crypto.randomUUID>;
 
-export type SessionUser = {
+export type TSessionUser = {
   id: UUID;
   name: string;
   email: string;
-  account: Account;
+  account: TAccount;
   avatar?: string;
   role: {
     name: string;
     id: UUID;
   };
+  permissions: Array<TPermissionFromBE>;
 };
 
-export type SessionData = {
-  sessionUser: SessionUser;
-  sessionId: UUID;
-};
+export type TPermissionOnFE =
+  | 'moneyOverviewRead'
+  | 'moneyBalancesRead'
+  | 'moneyBalancesWrite'
+  | 'moneyBalancesDelete'
+  | 'moneyBudgetsRead'
+  | 'moneyBudgetsWrite'
+  | 'moneyBudgetsDelete'
+  | 'moneyTransactionsRead'
+  | 'moneyTransactionsWrite'
+  | 'moneyTransactionsDelete'
+  | 'moneyInvestmentsRead'
+  | 'moneyInvestmentsWrite'
+  | 'moneyInvestmentsDelete'
+  | 'assetsRead'
+  | 'assetsWrite'
+  | 'assetsDelete'
+  | 'timelinesRead'
+  | 'timelinesWrite'
+  | 'timelinesDelete'
+  | 'notificationsRead'
+  | 'notificationsWrite'
+  | 'settingsRead'
+  | 'settingsWrite'
+  | 'accountRead'
+  | 'accountWrite'
+  | 'accountDelete';
 
-export type App = {
-  name: string;
+export type TPermissionFromBE =
+  | `${string}.read`
+  | `${string}.write`
+  | `${string}.delete`;
+
+export type TAccount = {
   id: UUID;
-  href: string;
-  permissions: Permission[]; // Minimum permissions required to access the app's root route
-  description?: string;
+  name: string;
 };
 
-export type IAppWithIcon = App & {
+export type TNavbarItem = {
+  to: string;
+  label: string;
   icon: ReactElement;
-};
-
-export type UserPrefs = {
-  theme: 'light' | 'dark' | 'system';
-  allowNotifications: boolean;
-};
-
-export type Permission = `${string}:${string}` | string;
-export type Role = {
-  id: UUID;
-  name: string;
-  permissions: Permission[];
-};
-export type Account = {
-  id: UUID;
-  name: string;
+  permissions: Array<TPermissionOnFE>;
 };

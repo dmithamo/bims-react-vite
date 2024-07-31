@@ -7,6 +7,7 @@ interface Props {
     to: string;
     label: string;
     icon: ReactElement;
+    permissions: Array<string>;
   }>;
 }
 

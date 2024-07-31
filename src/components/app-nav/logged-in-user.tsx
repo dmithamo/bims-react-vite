@@ -1,7 +1,7 @@
 import { type ReactElement } from 'react';
 import genericAvatar from '/generic-avatar.jpg';
 
-import { type SessionUser } from '~/utils/types';
+import { type TSessionUser } from '~/utils/types';
 import { FlexContainer } from '~/components/flex/flex-container.tsx';
 import {
   AlignOption,
@@ -10,7 +10,7 @@ import {
 } from '~/components/ui-utils/styles.utils.ts';
 
 interface Props {
-  user: SessionUser;
+  user: TSessionUser;
 }
 
 export const LoggedInUser = (props: Props): ReactElement => {
