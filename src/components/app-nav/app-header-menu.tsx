@@ -6,6 +6,7 @@ import {
   moneyRoute,
   notificationsRoute,
   settingsRoute,
+  timelinesRoute,
 } from '~/utils/routes.utils';
 
 import {
@@ -33,6 +34,7 @@ import { useOnClickOutside } from '~/utils/hooks/useOnClickOutside.ts';
 import { FlexContainer } from '~/components/flex/flex-container.tsx';
 import { WalletIcon } from '~/components/svg-icons/wallet-icon.tsx';
 import { SquaresIcon } from '~/components/svg-icons/squares-icon.tsx';
+import { CalendarIcon } from '~/components/svg-icons/calendar-icon.tsx';
 
 const HeaderMenuItemWrapper = ({
   children,
@@ -78,13 +80,19 @@ export const AppHeaderMenu = (props: Props): ReactElement => {
         to: moneyRoute(),
         icon: <WalletIcon />,
         label: 'Money',
-        permissions: ['money.read'],
+        permissions: ['moneyOverviewRead'],
       },
       {
         to: assetsRoute(),
         icon: <SquaresIcon />,
         label: 'Assets',
-        permissions: ['assets.read'],
+        permissions: ['assetsRead'],
+      },
+      {
+        to: timelinesRoute(),
+        icon: <CalendarIcon />,
+        label: 'Timelines',
+        permissions: ['timelinesRead'],
       },
     ],
     [],
