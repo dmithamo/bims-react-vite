@@ -30,7 +30,7 @@ const ROUTER = createBrowserRouter(
       </Route>
       <Route path={moneyRoute()} element={<MoneyRoute />}>
         <Route
-          path={moneyRoute('')}
+          path={moneyRoute()}
           element={
             <ProtectedRoute requiredPermissions={['moneyOverviewRead']}>
               <MoneyOverviewRoute />

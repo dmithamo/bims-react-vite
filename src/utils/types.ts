@@ -59,3 +59,7 @@ export type TNavbarItem = {
   icon: ReactElement;
   permissions: Array<TPermissionOnFE>;
 };
+
+export type TApiError = {
+  message: string;
+};
