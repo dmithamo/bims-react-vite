@@ -18,11 +18,7 @@ export const RootRoute = () => {
         <div className={clsx('w-full', headerNavHeight)}>
           <AppHeader />
         </div>
-        <div
-          className={clsx(
-            'w-full p-4 flex-1 rounded-t-2xl shadow',
-            'transition ease-in-out delay-700',
-          )}>
+        <div className={clsx('w-full p-4 flex-1 rounded-t-2xl shadow')}>
           <Outlet />
         </div>
       </FlexContainer>
