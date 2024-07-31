@@ -5,9 +5,9 @@ import {
   JustifyOption,
   WidthOption,
 } from '~/components/ui-utils/styles.utils';
-import { NavLink } from 'react-router-dom';
 import { clsx } from 'clsx';
 import { FlexContainer } from '~/components/flex/flex-container.tsx';
+import NavItem from '~/components/app-nav/nav-item.tsx';
 
 interface Props {
   navItems: Array<{
@@ -56,20 +56,14 @@ function SidebarItem({
   icon: ReactElement;
 }): ReactElement {
   const linkClasses = ({ isActive }: { isActive: boolean }): string =>
-    clsx(
-      'w-full flex flex-col items-center gap-0',
-      'transition-all duration-200',
-      'justify-self-center',
-      'hover:text-accent',
-      isActive
-        ? 'text-emerald-500 [&>*:nth-child(even)]:inline-block'
-        : 'dark:text-slate-400',
-    );
+    clsx('flex flex-col items-center gap-none', {
+      '[&>*:nth-child(even)]:inline-block': isActive,
+    });
 
   return (
-    <NavLink end={true} className={linkClasses} to={to}>
+    <NavItem shouldMatchExact={true} extraClasses={linkClasses} to={to}>
       {icon}
       <span className={'text-xs hidden'}>{label}</span>
-    </NavLink>
+    </NavItem>
   );
 }
