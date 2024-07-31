@@ -1,14 +1,10 @@
-import type { FC, ReactElement } from 'react';
+import type { FC } from 'react';
 import AppNavBar from '~/components/app-nav/app-navbar';
 import { Outlet } from 'react-router-dom';
+import { TNavbarItem } from '~/utils/types.ts';
 
 interface Props {
-  navLinks: Array<{
-    to: string;
-    label: string;
-    icon: ReactElement;
-    permissions: Array<string>;
-  }>;
+  navLinks: Array<TNavbarItem>;
 }
 
 export const LayoutWithNavbar: FC<Props> = ({ navLinks }) => {

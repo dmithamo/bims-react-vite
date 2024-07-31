@@ -61,13 +61,15 @@ function SidebarItem({
     });
 
   return (
-    <NavItem
-      shouldMatchExact={true}
-      extraClasses={linkClasses}
-      to={to}
-      permissions={permissions}>
-      {icon}
-      <span className={'text-xs hidden'}>{label}</span>
-    </NavItem>
+    <button onClick={() => window.scrollTo(0, 0)}>
+      <NavItem
+        shouldMatchExact={true}
+        extraClasses={linkClasses}
+        to={to}
+        permissions={permissions}>
+        {icon}
+        <span className={'text-xs hidden'}>{label}</span>
+      </NavItem>
+    </button>
   );
 }

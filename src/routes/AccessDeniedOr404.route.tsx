@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { FlexContainer } from '~/components/flex/flex-container.tsx';
 import {
   AlignOption,
@@ -27,16 +26,16 @@ export const AccessDeniedOr404Route = () => {
                 'The page you tried to access does not exist, thought it once might have. Either that or you are forbidden from accessing it.'
               }
             </p>
-            <Link
+            <button
               className={clsx(
                 'text-accent',
                 'cursor-pointer',
                 'underline',
                 'underline-offset-4',
               )}
-              to={'..'}>
+              onClick={() => history.back()}>
               Back
-            </Link>
+            </button>
           </FlexContainer>
         </FlexContainer>
       </>

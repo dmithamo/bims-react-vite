@@ -1,12 +1,9 @@
 import NavItem from '~/components/app-nav/nav-item';
 import { type ReactElement, useMemo, useRef, useState } from 'react';
 import {
-  assetsRoute,
   logoutRoute,
-  moneyRoute,
   notificationsRoute,
   settingsRoute,
-  timelinesRoute,
 } from '~/utils/routes.utils';
 
 import {
@@ -32,9 +29,6 @@ import { LogoutIcon } from '~/components/svg-icons/logout-icon';
 import { Form } from 'react-router-dom';
 import { useOnClickOutside } from '~/utils/hooks/useOnClickOutside.ts';
 import { FlexContainer } from '~/components/flex/flex-container.tsx';
-import { WalletIcon } from '~/components/svg-icons/wallet-icon.tsx';
-import { SquaresIcon } from '~/components/svg-icons/squares-icon.tsx';
-import { CalendarIcon } from '~/components/svg-icons/calendar-icon.tsx';
 
 const HeaderMenuItemWrapper = ({
   children,
@@ -51,10 +45,11 @@ const HeaderMenuItemWrapper = ({
 interface Props {
   user: TSessionUser;
   appVersion?: string;
+  appList: Array<TNavbarItem>;
 }
 
 export const AppHeaderMenu = (props: Props): ReactElement => {
-  const { user, appVersion } = props;
+  const { user, appVersion, appList } = props;
 
   const headerLinks: Array<TNavbarItem> = useMemo(
     () => [
@@ -69,30 +64,6 @@ export const AppHeaderMenu = (props: Props): ReactElement => {
         icon: <CogIcon />,
         label: 'Settings',
         permissions: [],
-      },
-    ],
-    [],
-  );
-
-  const appList: Array<TNavbarItem> = useMemo(
-    () => [
-      {
-        to: moneyRoute(),
-        icon: <WalletIcon />,
-        label: 'Money',
-        permissions: ['moneyOverviewRead'],
-      },
-      {
-        to: assetsRoute(),
-        icon: <SquaresIcon />,
-        label: 'Assets',
-        permissions: ['assetsRead'],
-      },
-      {
-        to: timelinesRoute(),
-        icon: <CalendarIcon />,
-        label: 'Timelines',
-        permissions: ['timelinesRead'],
       },
     ],
     [],
