@@ -20,10 +20,11 @@ export default function NavItem({
 }: Props): ReactNode {
   const linkClasses = ({ isActive }: { isActive: boolean }): string =>
     clsx(
-      'hover:text-emerald-500 dark:hover:text-emerald-700',
+      'hover:text-aLight dark:hover:text-aDark',
       'transition-all duration-200',
       {
-        'text-emerald-500 dark:text-emerald-700 font-bold': isActive,
+        'text-aLight dark:text-aDark font-bold': isActive,
+        'text-pLight/85 dark:text-pDark/85': !isActive,
       },
       extraClasses({ isActive }),
     );

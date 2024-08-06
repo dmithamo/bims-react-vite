@@ -26,11 +26,7 @@ export default function AppNavbar(props: Props): ReactElement | null {
         'transition-all duration-200',
       )}>
       <FlexContainer
-        className={clsx(
-          'bg-slate-50 dark:bg-gray-950',
-          'p-2',
-          'w-full sm:w-1/3',
-        )}
+        className={clsx('bg-sLight dark:bg-sDark', 'p-2', 'w-full sm:w-1/3')}
         direction={DirectionOption.row}
         justify={JustifyOption.around}
         align={AlignOption.center}

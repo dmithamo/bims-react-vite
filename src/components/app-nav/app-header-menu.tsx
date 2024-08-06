@@ -103,7 +103,7 @@ export const AppHeaderMenu = (props: Props): ReactElement => {
             'w-full h-full sm:w-[25rem]',
             'flex flex-col gap-6',
             'p-8 shadow',
-            'bg-slate-50 text-zinc-900 dark:bg-slate-950 dark:text-slate-400',
+            'bg-sLight text-pLight dark:bg-sDark dark:text-pDark',
             'z-10',
           )}>
           <FlexContainer
@@ -117,7 +117,7 @@ export const AppHeaderMenu = (props: Props): ReactElement => {
           </FlexContainer>
 
           <FlexContainer
-            className={'pb-8 border-b border-zinc-900 dark:border-slate-400'}
+            className={'pb-8 border-b border-pLight dark:border-pDark'}
             direction={DirectionOption.column}
             gap={GapOption.medium}
             marginY={SpacingOption.large}>

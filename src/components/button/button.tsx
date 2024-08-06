@@ -8,8 +8,8 @@ import {
 
 const buttonStyleClasses = {
   [ButtonStyle.primary]:
-    'bg-emerald-400 dark:bg-emerald-500 dark:text-black border-2 border-emerald-600 dark:border-emerald-800',
-  [ButtonStyle.secondary]: 'bg-gray-500 hover:bg-gray-600 text-white',
+    'bg-aLight dark:bg-aDark dark:text-pDark border-2 border-aLight dark:border-aDark',
+  [ButtonStyle.secondary]: 'bg-sLight hover:bg-sLight text-white',
   [ButtonStyle.ghost]: 'bg-transparent hover:bg-gray-100 text-gray-700',
   [ButtonStyle.danger]: 'bg-red-500 hover:bg-red-600 text-white',
   [ButtonStyle.link]: 'bg-transparent hover:bg-transparent text-blue-500',
