@@ -38,7 +38,7 @@ export const AuthLoginRoute = () => {
           <p>Sign in to your account to get started</p>
         </div>
 
-        {'error' && <ErrorAlert message={'error.message'} />}
+        {Math.random() * 10 > 4 && <ErrorAlert message={'error.message'} />}
 
         <Form method={'post'} action={loginRoute()} className={'w-full'}>
           <FlexContainer

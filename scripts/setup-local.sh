@@ -15,4 +15,4 @@ fi
 
 echo "Local environment setup complete."
 
-npm run update-version
+pnpm run update-version
